@@ -33,4 +33,12 @@ end
       observation: Faker::Lorem.paragraph
     )
   end
+
+  5.times do |payment_counter|
+    puts "Inserting Pay #{payment_counter}"
+    person.payments.create(
+      amount: Faker::Number.between(from: 1, to: 200),
+      paid_at: Faker::Date.between(from: '2014-09-23', to: '2024-04-25')
+    )
+  end
 end
